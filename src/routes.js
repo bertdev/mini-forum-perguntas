@@ -10,4 +10,9 @@ router.get('/ask', (request, response) => {
   response.render('pages/ask');
 });
 
+router.post('/ask', (request, response) => {
+  console.log(request.body);
+  response.send('amigo estou aqui');
+});
+
 module.exports = router;
