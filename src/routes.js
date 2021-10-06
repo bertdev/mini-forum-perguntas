@@ -1,18 +1,31 @@
 const express = require('express');
+const AnswerController = require('./app/controllers/AnswerController');
+const AsksController = require('./app/controllers/AsksController');
 
 const router = express();
 
 router.get('/', (request, response) => {
-  response.render('pages/index');
+  AsksController.index(request, response);
 });
 
 router.get('/ask', (request, response) => {
-  response.render('pages/ask');
+  response.render('pages/toAsk');
+});
+
+router.get('/ask/:id', (request, response) => {
+  AsksController.show(request, response);
 });
 
 router.post('/ask', (request, response) => {
-  console.log(request.body);
-  response.send('amigo estou aqui');
+  AsksController.store(request, response);
+});
+
+router.get('/answer/:id', (request, response) => {
+  AnswerController.show(request, response);
+});
+
+router.post('/answer/:id', (request, response) => {
+  AnswerController.store(request, response);
 });
 
 module.exports = router;

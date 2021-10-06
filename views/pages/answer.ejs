@@ -1,0 +1,30 @@
+<%- include('./../partials/head') %>
+
+  <body class="w-screen bg-indigo-50">
+    <%- include('./../partials/navbar') %>
+
+      <div class="container w-2/3 mx-auto mt-5">
+        <div class="border-b-2 border-gray-300 py-2 mb-4">
+          <h1 class="text-3xl">
+            <%= pergunta.title %>
+          </h1>
+          <p class="text-base mt-2 text-gray-700">
+            <%= pergunta.content %>
+          </p>
+        </div>
+
+        <div>
+          <form class="block my-5" method="POST" action="/answer/<%= pergunta.id %> ">
+            <label class="block mt-4 mb-2">Resposta</label>
+            <textarea placeholder="Faça sua pergunta..." class="block w-full border-2 border-gray-200 rounded"
+              name="content">
+            </textarea>
+            <button class="block bg-blue-400 text-white px-7 py-2 rounded-md mt-4 hover:bg-blue-600" type="submit">
+              Responder
+            </button>
+          </form>
+        </div>
+
+      </div>
+  </body>
+  <%- include('./../partials/closehtml') %>

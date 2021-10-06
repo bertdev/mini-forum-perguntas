@@ -1,0 +1,14 @@
+CREATE DATABASE forumperguntas;
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS perguntas (
+  id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
+  title VARCHAR NOT NULL,
+  content TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS respostas (
+  id UUID NOT NULL,
+  content TEXT NOT NULL
+);
